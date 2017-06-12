@@ -62,14 +62,19 @@ vi http.conf
 	require valid-user
 </Directory>
 ```
-
+[^zhushi]
 保存后，然后创建apache的验证用户
 
 ```shell
 htpasswd -c /data/.htpasswd test
 ```
 
+注：匹配文件用filesmatch
 
 
+
+
+
+smqingk
 
 
