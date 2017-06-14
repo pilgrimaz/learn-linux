@@ -55,7 +55,6 @@
 
    | 表示或者
 
-    
 
    比如： `error_reporting  =  E_ALL & ~E_NOTICE`  表示错误级别为E_ALL 并且除了E_NOTICE 
 
@@ -89,3 +88,15 @@
    修改扩展路径为：extension_dir="/usr/local/php/ext"
 
    保存后可以利用 /usr/local/php/bin/php-cgi -m 检测和查看具体的参数
+
+5. *apache2/conf/extra/httpd-mpm.conf*介绍
+
+   ```shell
+   <IfModule mpm_prefork_module>
+       StartServers          5     开始进程数
+       MinSpareServers       5     最小空闲进程
+       MaxSpareServers      10     最大空闲进程
+       MaxClients          150     最大子进程
+       MaxRequestsPerChild   0     最大访问次数后关闭该进程
+   </IfModule>
+   ```
