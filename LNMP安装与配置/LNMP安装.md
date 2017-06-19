@@ -230,7 +230,6 @@ rlimit_files = 1024
 cp /usr/local/src/php-5.3.27/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
 chmod 755 /etc/init.d/php-fpm
 service php-fpm start
-
 ```
 
 如果想让它开机启动，执行:
@@ -250,8 +249,6 @@ ps aux |grep php-fpm
 看看是不是有很多个进程（大概20多个）。
 
 ## 安装nginx
-
-Nginx官方网站([http://nginx.org](http://nginx.org)), 从官方网站可以看到nginx更新速度很快，这也反映了一个事实，目前使用nginx跑网站的公司或者个人越来越多。当前最新版本为1.5, 但是阿铭不建议你安装这么新的，因为它还太新，难免会有一些bug或者漏洞，所以阿铭建议你安装1.4版本的nginx.
 
 (近期nginx报出一个安全漏洞，影响版本很广 CVE-2013-4547，所以之前的老版本都需要升级一下, 1.4.4, 1.5.7以及往后版本没有问题)
 
@@ -295,16 +292,12 @@ make
 
 ```
 make install
-
 ```
-
-因为nginx比较小，所以很快就会安装完，而且也不会出什么错误，如果出错了，到阿铭论坛([http://www.aminglinux.com/bbs/forum-40-1.html](http://www.aminglinux.com/bbs/forum-40-1.html))发帖求助阿铭吧。
 
 1. 编写nginx启动脚本，并加入系统服务
 
 ```
 vim /etc/init.d/nginx
-
 ```
 
 写入如下内容:
@@ -381,7 +374,6 @@ case "$1" in
 esac
 
 exit $RETVAL
-
 ```
 
 保存后，更改权限:
@@ -389,14 +381,12 @@ exit $RETVAL
 ```
 chmod 755 /etc/init.d/nginx
 chkconfig --add nginx
-
 ```
 
 如果想开机启动，请执行:
 
 ```
 chkconfig nginx on
-
 ```
 
 1. 更改nginx配置
