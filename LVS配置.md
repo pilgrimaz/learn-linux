@@ -202,3 +202,4 @@ echo 1 &gt; /proc/sys/net/ipv4/ip\_forward
 
 另外，需要注意的是，启动keepalived服务会自动生成vip和ipvsadm规则，不需要再去执行上面提到的 /usr/local/sbin/lvs\_dr.sh脚本。
 
+>关于自动切换的优先级参考http://h11345.blog.51cto.com/780987/1570786
