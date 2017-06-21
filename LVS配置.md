@@ -157,29 +157,29 @@ vrrp_instance VI_1 {
       auth_type PASS
       auth_pass 1111
 	  }
-	  virtual_ipaddress{
+	  virtual_ipaddress {
         192.168.0.100
 	  }
 	}
-	virtual_server 192.168.0.100 80{
+	virtual_server 192.168.0.100 80 {
       delay_loop 6         #(每隔10秒查询realserver状态)
       lb_algo wlc		   #(lvs算法)
       lb_kind DR		   #(Direct Route)
       persistence_timeout 60   #(同一IP的连接60秒内被分配到同一台realserver)
       protocol TCP         #(用TCP协议检查realserver状态)
       
-      real_server 192.168.0.21 80{
+      real_server 192.168.0.21 80 {
         weight 100		   #（权重）
-        TCP_CHECK{
+        TCP_CHECK {
           connect_timeout 10   #(10秒无响应超时)
           nb_get_retry 3
           delay_before_retry 3
           connect_port 80
           }
         }
-      real_server 192.168.0.22 80{
+      real_server 192.168.0.22 80 {
         weight 100
-        TCP_CHECK{
+        TCP_CHECK {
           connect_timeout 10
           nb_get_retry 3
           delay_before_retry 3
