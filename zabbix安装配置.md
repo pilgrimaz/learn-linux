@@ -24,7 +24,7 @@ mysql -uroot -p --default-character-set=utf8 zabbix < /usr/share/zabbix-mysql/da
 在客户端上 yum install zabbix20-agent
 vim /etc/zabbix_agent.conf //更改Server=服务端ip；ServerActive=0.0.0.0:10050；Hostname=aming（自定义，但要唯一）
 启动客户端/etc/init.d/zabbix-agent start
-服务端上命令行测试：zabbix_get -s 客户端ip -p10050 -k "system.hostname"
+服务端上命令行测试：zabbix_get -s 客户端ip -p10050 -k "system.hostname"</br>
 在web界面下，点"configuration"-->"host"-->右上角点"Create Host"其中host name，visible name自定义，可以选择greoups，这里默认即可，ip address写入客户端ip
 配置监控项目模板：点"temolates",点add，在弹出的小窗口中选择Template OS Linux,然后点select，最后点save
 4. 自定义templates
