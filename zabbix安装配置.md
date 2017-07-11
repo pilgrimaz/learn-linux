@@ -30,3 +30,6 @@ vim /etc/zabbix_agent.conf //更改Server=服务端ip；ServerActive=0.0.0.0:100
 4. 自定义templates
 Zabbix自带了很多模板，模板中有很多监控项目，比如CPU、网卡、内存、进程等。使用系统自带模板有点太多了，所以我们可以自定义模板。点configuration选择templates，点save
 然后我们去挑选一些项目拷贝到该模板下：比如我们找到template OS Linux点一下items，选择我们想要的项目，然后在下面选中copy selected to ...然后点go
+Group选中templates，找到刚才我们自定义的templates，点copy
+点configuration选择templates可以看到新建的templates中已经有刚刚我们copy的items了
+我们可以使用和上面相同的方法自定义拷贝triggers（触发器），它用来设置告警的阀值，当然我们也可以自定义编辑它
