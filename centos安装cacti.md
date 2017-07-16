@@ -25,7 +25,7 @@
    mysql -uroot  -e "create database cacti"
 
 创建cacti用户
-mysql -uroot -e "grant all on cacti.* to 'cacti'@'127.0.0.1' identified by 'cacti';"
+mysql -uroot -e "grant all on cacti.* to 'cacti'@'localhost' identified by 'cacti';"
 
 导入sql文件
 mysql -uroot cacti < /usr/share/doc/cacti-0.8.8b/cacti.sql
@@ -34,7 +34,7 @@ mysql -uroot cacti < /usr/share/doc/cacti-0.8.8b/cacti.sql
     vim /usr/share/cacti/include/config.php  更改如下：
     $database_type = "mysql";
     $database_default = "cacti";
-    $database_hostname = "127.0.0.1";
+    $database_hostname = "localhost";
     $database_username = "cacti";
     $database_password = "cacti";
     $database_port = "3306";
