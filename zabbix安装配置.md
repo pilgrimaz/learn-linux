@@ -33,3 +33,21 @@ Zabbix自带了很多模板，模板中有很多监控项目，比如CPU、网�
 Group选中templates，找到刚才我们自定义的templates，点copy
 点configuration选择templates可以看到新建的templates中已经有刚刚我们copy的items了
 我们可以使用和上面相同的方法自定义拷贝triggers（触发器），它用来设置告警的阀值，当然我们也可以自定义编辑它
+5. 配置发邮件
+yum install -y sendmail;
+mkdir -p /home/zabbix/bin
+vim /home/zabbix/bin/baojing.sh  //内容：
+```shell
+#!/bin/bash
+echo "$3" |/bin/mail -s "$2" $1
+chmod +x /home/zabbix/bin/baojing.sh
+```
+在zabbix_server.conf配置文件中，有参数AlertScriptsPath和ExternalScripts
+AlertScriptsPath=/home/zabbix/bin/ --用户自定义的media types脚本
+ExternalScripts=/home/zabbix/bin/ --用户自定义的检查的脚本（item）
+这样才能找到你的脚本，因为你在fronted中只是输入脚本的名称，没有路径。
+
+创建mediea types:"Administration"-->"Media types",点击右上角"Create Media Type"其中Description填"baojing"或其它自定义名称，Type选择"Script",Script填"baojing.sh"然后点"Save"。
+创建user:"administration"-->"users"在右上角，选择"Users",点击"Create User".alias:test1,自定义name和lastname
+password:123456;group选择guest，回到上面点一下media,type选择baojing，send to写要发送邮件的邮箱，点add，最后点save
+创建action:"configuration"-->actions,右上角"Create Actions"Name自定义，我这里写"baojing"，其他默认，然后点右侧的"Operations"下的"New"按钮，"Operation Type"选择"send message","Send Message to"选择一个或多个要发送消息的用户组，send to Users选择我们之前新增的test1，"send only to"选择baojing，点一下add最后点save
