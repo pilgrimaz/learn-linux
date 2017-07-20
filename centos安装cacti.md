@@ -25,7 +25,7 @@
    mysql -uroot  -e "create database cacti"
 
 创建cacti用户
-mysql -uroot -e "grant all on cacti.* to 'cacti'@'127.0.0.1' identified by 'cacti';"
+mysql -uroot -e "grant all on cacti.* to 'cacti'@'localhost' identified by 'cacti';"
 
 导入sql文件
 mysql -uroot cacti < /usr/share/doc/cacti-0.8.8b/cacti.sql
@@ -34,7 +34,7 @@ mysql -uroot cacti < /usr/share/doc/cacti-0.8.8b/cacti.sql
     vim /usr/share/cacti/include/config.php  更改如下：
     $database_type = "mysql";
     $database_default = "cacti";
-    $database_hostname = "127.0.0.1";
+    $database_hostname = "localhost";
     $database_username = "cacti";
     $database_password = "cacti";
     $database_port = "3306";
@@ -88,4 +88,24 @@ syscontact Root 1212@1212.com
 6. 点左上角的Graphs
    在左侧可以看到
    Defaut Tree下面已经增加了我们刚刚添加的主机，图形一开始不会那么快出来，要等一小会才可以。
+   
+####错误解决
+1.
 
+ERROR:Your Cacti database login account does not have access to the 
+MySQL TimeZone database. Please provide the Cacti database account 
+“select” access to the “time_zone_name” table in the “mysql” database, 
+and populate MySQL’s TimeZone information before proceeding.
+
+mysql> GRANT SELECT ON mysql.time_zone_name TO cactiuser@localhost IDENTIFIED BY 'cacti'
+
+2.
+
+ERROR: Your MySQL TimeZone database is not populated. Please populate 
+this database before proceeding.
+
+mysql_tzinfo_to_sql /usr/share/zoneinfo/ | mysql -u root -p mysql
+
+
+>出现有图无数据排错 http://blog.csdn.net/kk185800961/article/details/45347501
+>完整编译安装 http://www.myexception.cn/solaris/429196.html
