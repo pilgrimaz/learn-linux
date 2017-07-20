@@ -51,7 +51,7 @@ node centos2
 ping 192.168.25.1 #仲裁地址
 respawn hacluster /usr/lib/heartbeat/ipfail
 ```
-注：如系统为64位，则应该为` respawn hacluster /usr/lib/heartbeat/ipfail `
+注：如系统为64位，则应该为` respawn hacluster /usr/lib64/heartbeat/ipfail `
 7. 把主上（centos1）上的三个配置文件拷贝到从上（centos2）
    cd /etc/ha.d
    scp authkeys ha.cf haresources centos2:/etc/ha.d/
@@ -88,7 +88,7 @@ heartbeat[2299]: 2016/10/18_11:55:43 ERROR: Configuration error, heartbeat not s
 
 解决方法
 vim /etc/ha.d/ha.cf
-将 respawn hacluster /usr/lib/heartbeat/ipfail 改成 respawn hacluster /usr/lib/heartbeat/ipfail //系统是64位的，所以路径应该在/usr/lib64/目录
+将 respawn hacluster /usr/lib/heartbeat/ipfail 改成 respawn hacluster /usr/lib64/heartbeat/ipfail //系统是64位的，所以路径应该在/usr/lib64/目录
 
 2. 错误二：
 
