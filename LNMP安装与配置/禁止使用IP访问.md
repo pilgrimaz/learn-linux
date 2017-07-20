@@ -16,6 +16,6 @@
  server {
  listen 80 default_server;
  server_name b.com;
- return 403;      #用403或者444，视乎不太友好
+ return 403;      #用403或者444，好像不太友好
  }
 ```
