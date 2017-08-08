@@ -44,14 +44,14 @@ set global long_query_time=0.1; #设置大于0.1s的sql语句记录下来
 
 
 慢查询日志文件的信息格式：
-
+```
 # Time: 130905 14:15:59         时间是2013年9月5日 14:15:59(前面部分容易看错哦,乍看以为是时间戳)
 # User@Host: root[root] @  [183.239.28.174]  请求mysql服务器的客户端ip
 # Query_time: 0.735883  Lock_time: 0.000078 Rows_sent: 262  Rows_examined: 262 这里表示执行用时多少秒，0.735883秒，1秒等于1000毫秒
 
 SET timestamp=1378361759;  这目前我还不知道干嘛用的
 show tables from `test_db`; 这个就是关键信息，指明了当时执行的是这条语句
-
+```
 
 
 
