@@ -4,7 +4,7 @@
 
 ```shell
 location ~* ^.+\.(gif|jpg|png|swf|flv|rar|zip|doc|pdf|gz|bz2|jpeg|bmp|xls)$ {   
-                valid_referers none blocked server_names  *.taobao.com *.baidu.com *.google.com *.google.cn *.soso.com ;  // 对这些域名的网站不进行盗链。
+                valid_referers none blocked server_names  *.taobao.com *.baidu.com *.google.com *.google.cn *.soso.com ;  // 对这些域名的网站不进行盗链,注意需加上自己的网站。
                 if ($invalid_referer) {
 #                        rewrite   ^/   http://www.52blackberry.com/403.html;
 #                        return 403;
