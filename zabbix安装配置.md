@@ -1,7 +1,7 @@
 1. 安装zabbix
  安装rpm包的lamp环境(yum安装)
  ```
- yum install -y httpd mysql mysql-libs php php-mysql mysql-server php-bcmath php-gd php-mbstring
+  yum install -y httpd mysql mysql-libs php php-mysql mysql-server php-bcmath php-gd php-mbstring
  ```
  安装zabbix服务端：
  ```
