@@ -5,7 +5,7 @@
  ```
  安装zabbix服务端：
  ```
-yum install zabbix20 zabbix20-agent zabbix20-server zabbix20-server-mysql zabbix20-web zabbix20-web-mysql net-snmp-devel
+yum install zabbix20 zabbix20-agent zabbix20-server zabbix20-server-mysql     zabbix20-web zabbix20-web-mysql net-snmp-devel
 /etc/init.d/zabbix-server start;/etc/init.d/zabbix-agent start
 /etc/init.d/httpd start;/etc/init.d/mysqld start
 mysql -uroot -p -e "create database zabbix"
