@@ -16,10 +16,11 @@ mysql -uroot -p --default-character-set=utf8 zabbix < /usr/share/zabbix-mysql/da
 2. 网页安装zabbix
 浏览器访问 http://ip/zabbix，默认会有“It is not safe to rely on the system's timezone setting"这样的警告信息，需要vim /etc/php.ini 设置date.timezone='Asia/Chongqing'
 点next，解决相关的报错信息（vim /etc/php.ini）
-点netx，输入mysql相关信息，（此处可建立一个zabbix的mysql用户，`mysql -uroot -e "grant all on zabbix.* to 'zabbix'@localhost identified by 'zabbixpasswd'"`,建立用户后需要到/etc/zabbix_server.conf添加数据库用户名和密码）首先要测试一下，如果不通过，则需要调试，测试通过后，
+点netx，输入mysql相关信息，（此处可建立一个zabbix的mysql用户，`mysql -uroot -e "grant all on zabbix.* to 'zabbix'@localhost identified by 'zabbixpasswd'"`,
+**建立用户后需要到/etc/zabbix_server.conf添加数据库用户名和密码）首先要测试一下，如果不通过，则需要调试，**测试通过后，
 点next，Name可自定义一个，点next，再点next，最后finish
 默认管理员账号为admin：zabbix
-这是如果遇到"zabbix server is not running"这样的错误，需要编辑一下/etc/zabbix/zabbix_server.conf,配置DBUser，DBPassword（跟上面一样）
+**这时如果遇到"zabbix server is not running"这样的错误，需要编辑一下/etc/zabbix/zabbix_server.conf,配置DBUser，DBPassword（跟上面一样）**
 3. 接入要监控的主机
 在客户端上 yum install zabbix20-agent
 vim /etc/zabbix_agent.conf //更改Server=服务端ip；ServerActive=0.0.0.0:10050；Hostname=aming（自定义，但要唯一）
