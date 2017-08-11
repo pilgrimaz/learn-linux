@@ -5,10 +5,10 @@
    位于php配置文件_php.ini_中
 
    ```shell
-   disable_functions=eval,assert,popen,passthru,escapeshellarg,escapeshellcmd,passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_get_status,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,leak,popepassthru,stream_socket_server,popen,proc_close
+   disable_functions=eval,assert,popen,passthru,escapeshellarg,escapeshellcmd,passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_get_status,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,leak,popepassthru,stream_sockt_server,popen,proc_open,proc_close,proc_get_status,fsocket
    ```
 
-2. 配置error_log错误日志级别
+2. 配置error_log错误日志级别,同样在*php.ini*
 
    ```shell
    display_error=off
