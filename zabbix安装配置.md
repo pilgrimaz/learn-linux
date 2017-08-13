@@ -57,10 +57,9 @@ password:123456;group选择guest，回到上面点一下media,type选择baojing�
 
 
 
+-----------
 
-
-注:
- Zabbix修改中文及中文乱码解决办法
+注1:Zabbix修改中文及中文乱码解决办法
  Zabbix 默认为英文界面，可能很多英文不好的朋友们不太习惯使用，下面介绍中文汉化方法，其实很简单：
 点选 Chinese(zh_CN)即可；
 汉化完成后，可能会出现两种乱码：
@@ -94,6 +93,14 @@ tar xf /root/ttf-arphic-uming_0.0.20050501-1.tar.gz
 cd /usr/local/apache/htdocs/zabbix/fonts  ## 注意此处为zabbix web文件所在路径
 mv DejaVuSans.ttf /root/        ## 备份原有字体文件
 cp /root/ttf-arphic-uming_0.0.20050501/uming.ttf  ./DejaVusans.ttf # 将下载的字体替换到此处；
-
 一切正常
 
+-----------
+
+注2：zabbix安装过程中php缺少动态扩展解决办法：参见
+[](PHP添加编译时忘添加的模块方式.md)
+安装msqli是要注明mysqli位置 编译时要用 
+```
+configure：# ./configure --with-php-config=/usr/local/php/bin/php-config --with-mysqli=/usr/local/MySQL/bin/mysql_config
+```
+（/usr/local/MYSQL 为mysql的安装目录）
