@@ -1,4 +1,4 @@
-1. 安装zabbix
+[](PHP添加编译时忘添加的模块方式.md)1. 安装zabbix
  安装rpm包的lamp环境(yum安装)
  ```
   yum install -y httpd mysql mysql-libs php php-mysql mysql-server php-bcmath php-gd php-mbstring
@@ -98,7 +98,7 @@ cp /root/ttf-arphic-uming_0.0.20050501/uming.ttf  ./DejaVusans.ttf # 将下载�
 -----------
 
 注2：zabbix安装过程中php缺少动态扩展解决办法：参见
-[](PHP添加编译时忘添加的模块方式.md)
+(PHP添加编译时忘添加的模块方式.md)
 安装msqli是要注明mysqli位置 编译时要用 
 ```
 configure：# ./configure --with-php-config=/usr/local/php/bin/php-config --with-mysqli=/usr/local/MySQL/bin/mysql_config
