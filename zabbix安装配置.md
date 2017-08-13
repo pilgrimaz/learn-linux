@@ -52,3 +52,48 @@ ExternalScripts=/home/zabbix/bin/ --用户自定义的检查的脚本（item）
 创建user:"administration"-->"users"在右上角，选择"Users",点击"Create User".alias:test1,自定义name和lastname
 password:123456;group选择guest，回到上面点一下media,type选择baojing，send to写要发送邮件的邮箱，点add，最后点save
 创建action:"configuration"-->actions,右上角"Create Actions"Name自定义，我这里写"baojing"，其他默认，然后点右侧的"Operations"下的"New"按钮，"Operation Type"选择"send message","Send Message to"选择一个或多个要发送消息的用户组，send to Users选择我们之前新增的test1，"send only to"选择baojing，点一下add最后点save
+
+
+
+
+
+
+
+注:
+ Zabbix修改中文及中文乱码解决办法
+ Zabbix 默认为英文界面，可能很多英文不好的朋友们不太习惯使用，下面介绍中文汉化方法，其实很简单：
+点选 Chinese(zh_CN)即可；
+汉化完成后，可能会出现两种乱码：
+
+1、历史记录处出现 ???? 乱码：
+出现原因：
+mysql数据库默认字符集为 latin1，而 zabbix 需要使用 utf8，在初始化创建 zabbix 库时没有指定具体的字符集，倒入三张表时会继承 Mysql 的默认字符集，所以此处会出现乱码；
+
+解决办法：
+1、将 zabbix 数据库中的表备份；
+2、手动删除 zabbix 数据库；
+3、重新创建 zabbix 库时手动指定字符集为 utf8；
+  `create database zabbix default charset utf8`
+4、将倒出的 sql 文件中字符集为latin1的表字符集替换为 utf8；
+5、将备份的zabbix库重新倒入即可；
+
+此时重新访问 zabbix web页面，点击几次菜单，历史记录处一切正常；
+
+2、graphs、Green 菜单下出现方框文字乱码：
+
+出现原因：
+
+由于zabbix的web端没有中文字库，我们需要把中文字库加上即可；
+
+解决办法：
+
+下载中文字体：
+
+wget http://down1.chinaunix.net/distfiles/ttf-arphic-uming_0.0.20050501-1.tar.gz
+tar xf /root/ttf-arphic-uming_0.0.20050501-1.tar.gz
+cd /usr/local/apache/htdocs/zabbix/fonts  ## 注意此处为zabbix web文件所在路径
+mv DejaVuSans.ttf /root/        ## 备份原有字体文件
+cp /root/ttf-arphic-uming_0.0.20050501/uming.ttf  ./DejaVusans.ttf # 将下载的字体替换到此处；
+
+一切正常
+
