@@ -1,4 +1,5 @@
-####docker安装
+#### docker安装
+
 1. 内核支持
    官方要求linux kernel至少3.8以上，且docker只能运行在64位系统中
    内核版本低请先升级内核(方法见网络）
@@ -7,8 +8,10 @@
 2. 安装dock
    - 2.1 安装epel
      yum -y install epel-release
+
    - 2.2 yum安装docker-io
      yum -y install docker-io
+
    - 2.3 启动docker
      /bin/systemctl start docker.service
      注：如启动失败查看日志/var/log/docker
@@ -18,12 +21,22 @@
      ```
      出现上面错误说明docker0接口选择的网段有冲突，解决方法
      解决方法有两种：
-      方法一：修改/etc/default/docker，添加DOCKER_OPTS=”–bip=192.168.17.1/24”，重启即可。注意不要用192.168.0.1/24，这段地址也被占用了。
-      方法二：启动docker服务在指定的网段。sudo docker –bip 192.168.100.1/24 -d &
+     方法一：`vi /etc/docker/daemon.json`添加如下配置 
+     ```shell
+     {
+         "bip": "192.168.200.1/24"
+     }
+     ```
+     附：全配置清单https://www.antergone.com/42.html
+
+     方法二：启动docker服务在指定的网段。
+     `sudo docker –bip 192.168.100.1/24 -d &`
      建议第一种
-   - 2.4 查看docker版本
+
+- 2.4 查看docker版本
      利用命令docker version
-   - 2.5 开机启动docker
+
+- 2.5 开机启动docker
      /bin/systemctl enable docker.service
 
 3. docker命令的使用
