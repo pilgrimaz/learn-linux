@@ -6,7 +6,7 @@
 当前是哪个用户 select user();
 当前库 select database()；
 创建库 create database db1；
-创建表 create database t1 (\`id\`int(4),\`name\` char(40));
+创建表 create table t1 (\`id\`int(4),\`name\` char(40));
 查看数据库版本 select version();
 查看mysql状态 show status;
 修改mysql参数 show variables like 'max_connect%';set global max_connect_errors=1000;
