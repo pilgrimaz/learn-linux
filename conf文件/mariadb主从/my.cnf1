@@ -1,0 +1,51 @@
+[client]
+port = 3309
+socket = /tmp/mariadb.sock
+default-character-set = utf8
+[mysql]
+no-auto-rehash
+default-character-set = utf8
+
+[mysqld]
+server-id = 1
+port = 3309
+user = mysql
+basedir = /usr/local/mariadb
+datadir = /data/mariadb
+socket = /tmp/mariadb.sock
+default-storage-engine = INNODB
+character-set-server = utf8
+connect_timeout = 60
+interactive_timeout = 28800
+wait_timeout = 28800
+back_log = 500
+event_scheduler = ON
+skip_name_resolve = ON;
+
+###########binlog##########
+binlog_format = row   #二进制日志记录的模式（高版本默认开启）
+binlog-checksum = CRC32  #可使主机为写入二进制日志的事件写入校验（高版本默认开启）
+max_binlog_size = 128M 
+binlog_cache_size = 2M  
+expire-logs-days = 5  #日志文件过期天数,默认是 0,表示不过期
+sync-master-info=1   #MariaDB依靠操作系统将master.info文件刷新到磁盘。
+sync_relay_log_info=1  #MariaDB依靠操作系统将relay-log.info文件刷新到磁盘。
+master-verify-checksum=1  #主服务器效验
+slave-sql-verify-checksum=1   #从服务器效验
+
+
+log-bin =/data/mariadb/logs/mysql-bin
+server-id=5
+sync-binlog=1
+log-bin-index=mysql-bin
+
+
+slow_query_log = 1
+slow_query_log_file = /data/mariadb/logs/mysql.slow
+long_query_time = 1
+
+log_error = /data/mariadb/logs/error.log
+max_connections = 3000
+max_connect_errors = 32767
+log_bin_trust_function_creators = 1
+transaction_isolation = READ-COMMITTED
