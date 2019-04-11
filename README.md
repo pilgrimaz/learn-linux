@@ -1,2 +1,2 @@
-[](README.md)[](README.md)
-Linux学习笔记
+# Initial page
+
