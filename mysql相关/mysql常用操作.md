@@ -1,4 +1,5 @@
 #### mysql常用操作
+```
 查看都有哪些库 show databases；
 查看某个库的表 use db；show tables；
 查看表的字段 desc tb；
@@ -21,11 +22,12 @@ grant all on db1.* to 'user3'@'%' identified by '231222';
 删除表 drop table db1.t1;
 删除数据库 drop datebase db1;
 修复表 repair table tb1 [use frm]；
-
+```
 #### mysql备份与恢复
-
+```
 备份 mysqldump -uroot -p db >1.sql
 恢复 musql -uroot -p db <1.sql
 只备份一表 mysqldump -uroot -p db tb1 > 2.sql
 备份时指定字符集 mysqldump -uroot -p --default-character-set=utf8 db > 1.sql
 恢复时指定字符集 mysqldump -uroot -p --default-character-set=utf8 db < 1.sql
+```
