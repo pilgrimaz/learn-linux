@@ -1,10 +1,10 @@
-#### 数据库####
+#### 数据库
 - 创建数据库   `create database 数据库名;`
 - 查看数据库   `show databases;`
 - 删除数据库   `drop database 数据库名;`
 - 查看数据库支持的引擎  `show engines;`
 - 查看默认的存储引擎  `show variables like 'storage_engine';`
-#### 表####
+#### 表
 - 创建表的语法格式  
   ```
   create table 表名 (属性名 数据类型[完整性约束条件],
@@ -40,7 +40,7 @@
   - 更改表的存储引擎  `alter table 表名 engine=存储引擎名;`
   - 删除表的外键约束  `alter table 表名 drop foreign key 外键别名`
   - 删除表(删除关联的父表需先删除外键依赖)  `drop table 表名`
-#### 索引####
+#### 索引
 - 创建索引
     - 创建表的时候创建索引,属性后加上   `[unique|fulltext|spatial] index|key  索引名(属性1 [(长度)]) [ASC|DESC]`
       unique 唯一性索引   fulltext 全文索引   spatial 空间索引  不选为普通索引
@@ -48,7 +48,7 @@
     - 在已经存在的表上创建索引   `create [unique|fulltext|spatial] index 索引名 on 表名(属性名 [(长度)]) [ASC|DESC]);`
     - 用alter table创建索引   `alter table 表名 add [unique|fulltext|apatial] index 索引名(属性名 [(长度)] [ASC|DESC]);`
 - 删除索引   `drop index 索引名 on 表名;`
-#### 视图####
+#### 视图
 
 -  创建视图 `create [algorithm={undefined|merge|temptable}] view 视图名[(属性清单)] as select语句 [with {cascaded|local} check option];`
   undefined 自动选择语法  
@@ -70,7 +70,7 @@
     alter [algorithm={undefined|merge|temptable}] view 视图名 [(属性清单)] as select语句 [with {cascaded|local} check option];
     ```
 - 删除视图  `drop view [if exists] 视图名列表 [restrict|cascade]`
-#### 触发器####
+####触发器####
 - 创建触发器  
   - 创建只有一个执行语句的触发器  `create trigger 触发器名 before|after 触发事件 on 表名 for each row 执行语句`
   - 创建有多个执行语句的触发器  
