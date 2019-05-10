@@ -1,4 +1,4 @@
-####mysql常用操作
+#### mysql常用操作
 查看都有哪些库 show databases；
 查看某个库的表 use db；show tables；
 查看表的字段 desc tb；
