@@ -1,4 +1,4 @@
-####nginx代理
+#### nginx代理
 ```
 upstream bbs.aaa.cn{
             server 1.2.3.1:80;
@@ -115,4 +115,11 @@ location   ~*   .*\.(php|phps|jsp)$
             proxy_temp_file_write_size 64k;  
        }  
     }  
+```
+
+实现 Nginx 代理的节点访问日志记录客户的 IP 而不是代理的 IP
+
+使用proxy反向代理模块中的proxy_set_header参数
+```
+proxy_set_header X-Forwarded-For $remote_addr;
 ```
