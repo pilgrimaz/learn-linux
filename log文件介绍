@@ -17,7 +17,8 @@
 /var/log/yum.log — 包含使用yum安装的软件包信息。
 /var/log/cron — 每当cron进程开始一个工作时，就会将相关信息记录在这个文件中。
 /var/log/secure — 包含验证和授权方面信息。例如，sshd会将所有信息记录（其中包括失败登录）在这里。
-/var/log/wtmp或/var/log/utmp — 包含登录信息。使用wtmp可以找出谁正在登陆进入系统，可以使用last命令显示这个文件或信息等。
+/var/log/wtmp —  包含登录信息。使用wtmp可以找出谁正在登陆进入系统，可以使用last命令显示这个文件或信息等。
+/var/log/utmp —  包含当前用户的登陆信息。可以用w和who命令查看相关信息。
 /var/log/faillog – 包含用户登录失败信息。此外，错误登录命令也会记录在本文件中。
 除了上述Log文件以外， /var/log还基于系统的具体应用包含以下一些子目录：
 /var/log/httpd/或/var/log/apache2 — 包含服务器access_log和error_log信息。
