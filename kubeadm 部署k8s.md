@@ -115,9 +115,9 @@ vim /etc/sysconfig/kubelet
 2. 关于镜像无法加载
 在初始化过程中master节点会下载`kube-proxy,kube-controller-manager,kube-apiserver,kube-scheduler,coredns,etcd,pause`等一些镜像，现阶段网络可能访问不到，可在报错信息中或者`/var/log/message`中查看镜像，将文件中镜像地址进行内容替换即可：
 将`k8s.gcr.io`替换为
- >registry.cn-hangzhou.aliyuncs.com/google_containers 
- registry.aliyuncs.com/google_containers 
- mirrorgooglecontainers
+ >registry.cn-hangzhou.aliyuncs.com/google_containers    
+ registry.aliyuncs.com/google_containers    
+ mirrorgooglecontainers   
 
 以上三选一
 使用`docker pull`将下载下来
