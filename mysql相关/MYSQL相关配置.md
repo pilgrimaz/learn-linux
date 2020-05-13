@@ -2,23 +2,23 @@
 
 [mysqld]
 
-socket = /tmp/mysql.sock    #为mysql客户程序与服务器之间本地通信指定一个套接字文件（linux下默认是在/var/lib/mysql/mysql.sock文件）
-port = 3306    #指定mysql监听的端口
-key_buffer = 384M    #key_buffer是用于索引块的缓冲区大小，增加它可得到更好处理的索引(对所有读和多重写)。key_buffer的大小视内存大小而定。
-table_cache = 512   #为所有线程打开表的数量。增加该值能增加mysqld要求的文件描述符的位置。可以避免频繁的打开数据表产生的开销
-sort_buffer_size = 2M    #每个需要进行排序的线程分配该大小的一个缓冲区。增加这值加速ORDER BY或GROUP BY操作
-     注意：该操作对应的分配内存是每连接独占！如果有100个连接，那么实际分配的总共排序缓冲区大小为100*2=200MB
-read_buffer_size = 2M    #读查询操作所能使用的缓冲区大小。和sort_buff_size一样，该参数对应的分配内存也是每连接独享。
-query_cache_size = 32M   #指定mysql查询结果缓冲区的大小
-read_rnd_buffer_size = 8M  #改参数在使用行指针排序之后，随机读用的。
-myisam_sort_buffer_size = 64M #MyISAM表发生变化时重新排序所需的缓冲
-thread_concurrency = 8  #最大并发线程数，取值为服务器逻辑CPU数量\*2，如果CPU支持H.T超线程，再\*2
-thread_cache = 8  #缓存可重用的线程数
-skip-locking    #避免mysql的外部锁定，减少出错几率增强稳定性。
-wait_timeout = 8   #表示空闲的连接超时时间，默认28800s，这个参数适合interactive_timeout一起使用的，也就是说要想让wait_timeout生效，必须同时设置interactive_time
-interactive_timeout = 8
-long_query_time = 1  #慢查询日志的超时时间
-log_slow_queries = /path/to/slow_queries  #慢查询日志路径，必须配合上面的参数一同使用
+socket = /tmp/mysql.sock    #为mysql客户程序与服务器之间本地通信指定一个套接字文件（linux下默认是在/var/lib/mysql/mysql.sock文件）  
+port = 3306    #指定mysql监听的端口  
+key_buffer = 384M    #key_buffer是用于索引块的缓冲区大小，增加它可得到更好处理的索引(对所有读和多重写)。key_buffer的大小视内存大小而定。   
+table_cache = 512   #为所有线程打开表的数量。增加该值能增加mysqld要求的文件描述符的位置。可以避免频繁的打开数据表产生的开销  
+sort_buffer_size = 2M    #每个需要进行排序的线程分配该大小的一个缓冲区。增加这值加速ORDER BY或GROUP BY操作      
+     注意：该操作对应的分配内存是每连接独占！如果有100个连接，那么实际分配的总共排序缓冲区大小为100*2=200MB   
+read_buffer_size = 2M    #读查询操作所能使用的缓冲区大小。和sort_buff_size一样，该参数对应的分配内存也是每连接独享。   
+query_cache_size = 32M   #指定mysql查询结果缓冲区的大小   
+read_rnd_buffer_size = 8M  #改参数在使用行指针排序之后，随机读用的。   
+myisam_sort_buffer_size = 64M #MyISAM表发生变化时重新排序所需的缓冲   
+thread_concurrency = 8  #最大并发线程数，取值为服务器逻辑CPU数量\*2，如果CPU支持H.T超线程，再\*2   
+thread_cache = 8  #缓存可重用的线程数    
+skip-locking    #避免mysql的外部锁定，减少出错几率增强稳定性。   
+wait_timeout = 8   #表示空闲的连接超时时间，默认28800s，这个参数适合interactive_timeout一起使用的，也就是说要想让wait_timeout生效，必须同时设置interactive_time   
+interactive_timeout = 8   
+long_query_time = 1  #慢查询日志的超时时间    
+log_slow_queries = /path/to/slow_queries  #慢查询日志路径，必须配合上面的参数一同使用    
 
 
 ####mysql调优
