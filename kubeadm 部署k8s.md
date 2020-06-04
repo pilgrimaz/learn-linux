@@ -8,7 +8,7 @@
 
 
 
-####1 环境准备
+#### 1 环境准备
  1. 三台centos服务器
     master 192.168.32.130
     node1  192.168.32.131
@@ -54,7 +54,7 @@ echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
 ```
 
 
-####2 环境部署
+#### 2 环境部署
 1. 安装相关程序执行
  * master节点
 ```
@@ -114,7 +114,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 
 
-####3. 坑点
+#### 3. 坑点
 1. 关于swap的忽略
 如果初始化是在 `--ignore-preflight-errors=swap`上设置了依然报错则需要
 ```
