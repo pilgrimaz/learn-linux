@@ -134,6 +134,10 @@ vim /etc/sysconfig/kubelet
 然后再使用 `docekr tag`将镜像打上需要的`k8s.gcr.io`标签的镜像
 node节点需要的镜像可以通过`docker save`将master节点的镜像保存拷贝到node节点之后通过`docker load -i`加载
 
+或者
+在`kubeadm init`时加上` --image-repository=registry.aliyuncs.com/google_containers` 
+也就是上面的三个镜像仓库地址中的一个都行
+
 3. K8s集群初始化成功后，kubectl get nodes 查看节点信息时报错
 报错信息：The connection to the server localhost:8080 was refused - did you specify the right host or port?
 
