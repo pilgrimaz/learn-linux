@@ -180,7 +180,19 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # GitHub End
 ```
 
-5. 其它问题
+5. 没有记token如何加入K8S集群
+
+  a. 生成一条永久有效的token ` kubeadm token create --ttl 0`
+      查看token `kubeadm token list`
+  b. 获取ca证书sha256编码hash值
+```
+      openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+      ```
+  c.  node节点加入
+```
+     kubeadm join 192.168.28.128:6443 --token <token> --discovery-token-ca-cert-hash sha256:<sha256>
+```
+6. 其它问题
 其它问题如果看不出报错的都可以在`/var/log/message`查看问题
 一些不可达的问题和解析问题基本都是跟`/etc/hosts`解析相关，需要添加解析信息
 同时跟一些忽略相关的可以通过在`--ignore-preflight-errors=`上添加忽略信息
