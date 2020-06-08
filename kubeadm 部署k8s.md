@@ -187,7 +187,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
   b. 获取ca证书sha256编码hash值
 ```
       openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
-      ```
+```
+
   c.  node节点加入
 ```
      kubeadm join 192.168.28.128:6443 --token <token> --discovery-token-ca-cert-hash sha256:<sha256>
