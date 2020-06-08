@@ -184,6 +184,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
   a. 生成一条永久有效的token ` kubeadm token create --ttl 0`
       查看token `kubeadm token list`
+      
   b. 获取ca证书sha256编码hash值
 ```
       openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
